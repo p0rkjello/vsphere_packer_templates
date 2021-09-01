@@ -25,7 +25,7 @@ variable "vsphere_datacenter" {
 
 variable "vm_name" {
   type        = string
-  default     = "windows-2016"
+  default     = ""
   description = "Name of the new VM to create"
 }
 
