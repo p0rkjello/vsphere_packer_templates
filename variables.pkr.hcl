@@ -1,53 +1,75 @@
+// variables.pkr.hcl
+
 variable "vsphere_vcenter_server" {
-  type      = string
-  default   = ""
-  sensitive = false
+  type        = string
+  description = "vCenter server hostname"
 }
 
 variable "vsphere_username" {
-  type      = string
-  default   = ""
-  sensitive = false
+  type        = string
+  description = "vSphere username"
 }
 
 variable "vsphere_password" {
-  type      = string
-  default   = ""
-  sensitive = true
+  type        = string
+  default     = ""
+  description = "vSphere password"
+  sensitive   = true
 }
 
 variable "vsphere_datacenter" {
-  type      = string
-  default   = ""
-  sensitive = false
+  type        = string
+  default     = ""
+  description = "VMware datacenter name"
 }
 
-variable "vsphere_cluster" {
-  type      = string
-  default   = ""
-  sensitive = false
+variable "vm_name" {
+  type        = string
+  default     = "windows-2016"
+  description = "Name of the new VM to create"
 }
 
-variable "vsphere_datastore" {
-  type      = string
-  default   = ""
-  sensitive = false
+variable "folder" {
+  type        = string
+  default     = "Templates"
+  description = "VM folder to create the VM in"
 }
 
-variable "vsphere_network" {
+variable "cluster" {
   type      = string
-  default   = "VM Network"
-  sensitive = false
+  description = "ESXi cluster where target VM is created"
 }
 
-variable "vsphere_winrm_username" {
-  type      = string
-  default   = ""
-  sensitive = false
+variable "datastore" {
+  type        = string
+  description = "VMWare datastore. Required if host is a cluster, or if host has multiple datastores"
 }
 
-variable "vsphere_winrm_password" {
+variable "iso_paths" {
+  type        = list(string)
+  description = "List of Datastore or Content Library paths to ISO files that will be mounted to the VM. "
+}
+
+variable "network" {
+  type        = string
+  default     = "VM Network"
+  description = "Set the network in which the VM will be connected to"
+}
+
+variable "disk_size" {
+  type        = int64
+  default     = "32768"
+  description = "The size of the disk in MB"
+}
+
+variable "winrm_username" {
+  type        = string
+  default     = "Administrator"
+  description = "The username to use to connect to WinRM"
+}
+
+variable "winrm_password" {
   type      = string
-  default   = ""
+  default   = "packer"
   sensitive = true
 }
