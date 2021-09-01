@@ -139,7 +139,7 @@
                     <Description>Disable Hibernation Mode</Description>
                 </SynchronousCommand>
                 <SynchronousCommand wcm:action="add">
-                    <CommandLine>cmd.exe /c wmic useraccount where "name='Administrator'" set PasswordExpires=FALSE</CommandLine>
+                    <CommandLine>cmd.exe /c wmic useraccount where "name='packer'" set PasswordExpires=FALSE</CommandLine>
                     <Order>10</Order>
                     <Description>Disable password expiration for Administrator user</Description>
                 </SynchronousCommand>
